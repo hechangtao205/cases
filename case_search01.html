@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类案检索APP原型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1890ff',
+                        secondary: '#f5f5f5',
+                        success: '#52c41a',
+                        warning: '#faad14',
+                        danger: '#ff4d4f',
+                        dark: '#333333',
+                        light: '#f8f8f8',
+                        muted: '#999999'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container max-w-6xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-center mb-8">类案检索APP原型设计</h1>
+        
+        <!-- 用户需求分析 -->
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-300">用户需求分析</h2>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <p class="mb-4">法律从业者需要:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>快速查找相似案例，提高工作效率</li>
+                    <li>分析案例关键要素，找出判决依据和逻辑</li>
+                    <li>保存和组织重要案例，建立个人知识库</li>
+                    <li>随时随地访问案例库，满足移动办公需求</li>
+                    <li>分享和协作案例研究，促进团队协作</li>
+                    <li>获取智能分析和推荐，辅助法律研究</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 产品功能规划 -->
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-300">产品功能规划</h2>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <p class="mb-4">核心功能:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>智能案例搜索：支持关键词、案号、法条搜索和自然语言提问</li>
+                    <li>案例详情浏览：提供案例基本信息、裁判文书、相关案例等多维度信息</li>
+                    <li>个人案例收藏：支持收藏夹分类管理</li>
+                    <li>案例比对分析：可视化对比不同案例的关键要素</li>
+                    <li>笔记和标注：支持对案例添加笔记和重点标注</li>
+                    <li>协作分享：团队空间和案例分享功能</li>
+                    <li>智能辅助：法条推荐、案例摘要自动生成等AI辅助功能</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- UI原型设计 -->
+        <h2 class="text-2xl font-bold mb-6 pb-2 border-b-2 border-gray-300">完整UI原型设计</h2>
+        
+        <!-- 1. 启动与登录 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">1. 启动与登录</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 启动页 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="text-base font-semibold">启动页</div>
+                    </div>
+                    <div class="p-4 h-[calc(100%-48px)] flex flex-col justify-center items-center text-center">
+                        <div class="text-2xl font-bold mb-4">类案检索</div>
+                        <div class="text-gray-500 mb-10">智能法律案例分析平台</div>
+                        <div class="w-24 h-24 bg-primary rounded-xl mb-24"></div>
+                        <img src="https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=300&h=300&fit=crop&q=80" alt="法律图标" class="w-24 h-24 object-cover rounded-xl mb-24">
+                        <div class="text-gray-400 text-sm">v1.0.0</div>
+                    </div>
+                </div>
+                
+                <!-- 登录页 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="text-base font-semibold">登录</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-center my-10">
+                            <div class="text-2xl font-bold mb-2">欢迎使用类案检索</div>
+                            <div class="text-gray-500 text-sm">请登录您的账号</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">手机号/用户名</label>
+                            <input type="text" placeholder="请输入手机号或用户名" class="w-full p-3 border border-gray-300 rounded-md text-sm">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-1">密码</label>
+                            <input type="password" placeholder="请输入密码" class="w-full p-3 border border-gray-300 rounded-md text-sm">
+                        </div>
+                        
+                        <div class="flex justify-between mb-6 text-sm">
+                            <div class="text-gray-500">记住密码</div>
+                            <div class="text-primary">忘记密码?</div>
+                        </div>
+                        
+                        <button class="w-full py-3 bg-primary text-white rounded-md font-medium">登录</button>
+                        
+                        <div class="text-center mt-4">
+                            <span class="text-sm text-gray-500">还没有账号?</span>
+                            <span class="text-sm text-primary">立即注册</span>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <div class="text-center mb-4 text-sm text-gray-400">其他登录方式</div>
+                            <div class="flex justify-center gap-6">
+                                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">微</div>
+                                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">支</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2. 首页与搜索 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">2. 首页与搜索</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 首页 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="text-base font-semibold">首页</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center bg-gray-100 rounded-lg p-3 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" placeholder="搜索案例关键词、案号、法条..." class="bg-transparent w-full text-sm border-none focus:outline-none">
+                        </div>
+                        
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-3 text-sm text-primary border-b-2 border-primary font-medium">推荐</div>
+                            <div class="px-2 py-3 text-sm text-gray-500">最新</div>
+                            <div class="px-2 py-3 text-sm text-gray-500">热门</div>
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">张某诉李某名誉权侵权纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-05-12</span>
+                                    <span>北京市第一中级人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">侵权责任</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">精选案例</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">王某与某科技公司劳动合同纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-04-28</span>
+                                    <span>上海市浦东新区人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">劳动合同</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">经济补偿金</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">某电商平台与消费者网络购物合同纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-04-15</span>
+                                    <span>广州互联网法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">电子商务</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">消费者权益</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">刘某与某房地产开发公司商品房买卖合同纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-03-30</span>
+                                    <span>深圳市中级人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">商品房</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">合同履行</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 底部导航 -->
+                        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-2">
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                <div class="text-xs text-primary">首页</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">搜索</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">收藏</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">我的</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 搜索筛选 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">搜索</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center bg-gray-100 rounded-lg p-3 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" value="名誉权侵权" placeholder="搜索案例关键词、案号、法条..." class="bg-transparent w-full text-sm border-none focus:outline-none">
+                        </div>
+                        
+                        <div class="mb-4 pb-4 border-b border-gray-200">
+                            <div class="font-medium mb-2">案由</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-blue-50 text-primary border border-blue-200 rounded-full">名誉权纠纷</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">肖像权纠纷</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">隐私权纠纷</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">一般人格权纠纷</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 pb-4 border-b border-gray-200">
+                            <div class="font-medium mb-2">法院层级</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">最高法院</span>
+                                <span class="px-3 py-1 text-sm bg-blue-50 text-primary border border-blue-200 rounded-full">高级法院</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">中级法院</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">基层法院</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 pb-4 border-b border-gray-200">
+                            <div class="font-medium mb-2">裁判年份</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-blue-50 text-primary border border-blue-200 rounded-full">2023年</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">2022年</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">2021年</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">2020年</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">更早</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 pb-4 border-b border-gray-200">
+                            <div class="font-medium mb-2">审判程序</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">一审</span>
+                                <span class="px-3 py-1 text-sm bg-blue-50 text-primary border border-blue-200 rounded-full">二审</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">再审</span>
+                                <span class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded-full">复核</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="flex-1 py-3 border border-gray-300 text-gray-600 rounded-md font-medium">重置</button>
+                            <button class="flex-1 py-3 bg-primary text-white rounded-md font-medium">确定</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 搜索结果 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">搜索结果</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center bg-gray-100 rounded-lg p-3 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" value="名誉权侵权" placeholder="搜索案例关键词、案号、法条..." class="bg-transparent w-full text-sm border-none focus:outline-none">
+                        </div>
+                        
+                        <div class="flex justify-between mb-4 text-sm">
+                            <div>共找到 <span class="text-primary font-bold">128</span> 条结果</div>
+                            <div class="text-gray-500">筛选 ▼</div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">张某诉李某名誉权侵权纠纷案</div>
+                                <div class="text-sm text-gray-700 mb-2">
+                                    ...被告<span class="bg-yellow-200">侵犯</span>原告<span class="bg-yellow-200">名誉权</span>，在微信群中发布不实言论，造成原告名誉受损，要求赔偿精神损失费及维权合理支出...
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-05-12</span>
+                                    <span>北京市第一中级人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">侵权责任</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">精选案例</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">陈某诉某自媒体平台名誉权侵权案</div>
+                                <div class="text-sm text-gray-700 mb-2">
+                                    ...自媒体平台未尽到审核义务，导致虚假信息传播，<span class="bg-yellow-200">侵犯</span>原告<span class="bg-yellow-200">名誉权</span>，判决被告删除相关内容并赔偿损失...
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-02-18</span>
+                                    <span>广州互联网法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">网络侵权</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">赵某与某新闻媒体名誉权纠纷案</div>
+                                <div class="text-sm text-gray-700 mb-2">
+                                    ...新闻报道失实，<span class="bg-yellow-200">侵犯</span>原告<span class="bg-yellow-200">名誉权</span>，法院判决被告公开道歉并赔偿损失，同时确认了新闻媒体的社会责任...
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2022-11-05</span>
+                                    <span>上海市高级人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">新闻报道</span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">孙某诉王某微信朋友圈侵犯名誉权案</div>
+                                <div class="text-sm text-gray-700 mb-2">
+                                    ...在微信朋友圈发布侮辱性言论，<span class="bg-yellow-200">侵犯</span>原告<span class="bg-yellow-200">名誉权</span>，法院认定构成侵权，判决被告赔礼道歉并赔偿损失...
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2022-09-23</span>
+                                    <span>北京市朝阳区人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">社交媒体</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3. 案例详情 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">3. 案例详情</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 案例基本信息 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">案例详情</div>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-48px)]">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2">张某诉李某名誉权侵权纠纷案</h3>
+                            <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                <div>案号: (2023)京01民终1234号</div>
+                                <div>2023-05-12</div>
+                            </div>
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">侵权责任</span>
+                                <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">精选案例</span>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                <span>北京市第一中级人民法院</span> | 
+                                <span>二审判决</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">案件基本信息</div>
+                            <div class="text-sm space-y-2">
+                                <p><span class="font-medium">审理法院:</span> 北京市第一中级人民法院</p>
+                                <p><span class="font-medium">案由:</span> 名誉权纠纷</p>
+                                <p><span class="font-medium">审判程序:</span> 二审</p>
+                                <p><span class="font-medium">裁判日期:</span> 2023年5月12日</p>
+                                <p><span class="font-medium">裁判结果:</span> 驳回上诉，维持原判</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">当事人信息</div>
+                            <div class="text-sm space-y-2">
+                                <p><span class="font-medium">上诉人(原审被告):</span> 李某，男，1985年1月出生</p>
+                                <p><span class="font-medium">被上诉人(原审原告):</span> 张某，男，1982年5月出生</p>
+                                <p><span class="font-medium">委托诉讼代理人:</span> 王律师，某律师事务所律师</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">案件概要</div>
+                            <div class="text-sm">
+                                本案为名誉权侵权纠纷。被上诉人张某与上诉人李某系同事关系。2022年12月，李某在公司微信群中发布消息称张某"工作能力差、偷懒、靠关系进入公司"等言论。张某认为李某的言论严重损害其名誉权，遂向法院提起诉讼，要求李某公开道歉并赔偿精神损失费及维权合理支出共计5万元。
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">裁判要点</div>
+                            <div class="text-sm space-y-2">
+                                <p>1. 认定侵权行为：李某在微信群中发布的言论缺乏事实依据，超出了正常评价范围，构成对张某名誉权的侵害。</p>
+                                <p>2. 关于责任承担：李某应当在原微信群中公开道歉，并赔偿张某精神损失费3万元，维权合理支出5000元。</p>
+                                <p>3. 关于言论自由与名誉权保护的边界：公民享有言论自由，但不得超出合理评价范围侵犯他人名誉权。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-around py-4 border-t border-gray-200 mt-4">
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">做笔记</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">收藏</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">对比分析</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">分享</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 裁判文书 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">案例详情</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-2 text-sm text-gray-500">基本信息</div>
+                            <div class="px-2 py-2 text-sm text-primary border-b-2 border-primary font-medium">裁判文书</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">相关案例</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">我的笔记</div>
+                        </div>
+                        
+                        <div class="overflow-y-auto h-[500px] text-sm leading-relaxed">
+                            <p class="text-center font-medium my-4">北京市第一中级人民法院</p>
+                            <p class="text-center font-medium mb-4">民 事 判 决 书</p>
+                            <p class="text-center mb-4">(2023)京01民终1234号</p>
+                            
+                            <p class="mb-2">上诉人(原审被告)：李某，男，1985年1月出生，汉族，住北京市朝阳区。</p>
+                            <p class="mb-2">委托诉讼代理人：赵律师，北京某律师事务所律师。</p>
+                            <p class="mb-2">被上诉人(原审原告)：张某，男，1982年5月出生，汉族，住北京市海淀区。</p>
+                            <p class="mb-2">委托诉讼代理人：王律师，北京某律师事务所律师。</p>
+                            
+                            <p class="mt-4 mb-2">上诉人李某因与被上诉人张某名誉权纠纷一案，不服北京市朝阳区人民法院(2023)京0105民初789号民事判决，向本院提起上诉。本院于2023年4月10日立案后，依法组成合议庭，于2023年5月5日公开开庭进行了审理。上诉人李某及其委托诉讼代理人赵律师，被上诉人张某及其委托诉讼代理人王律师到庭参加诉讼。本案现已审理终结。</p>
+                            
+                            <p class="mt-4 mb-2">李某上诉请求：1.撤销一审判决；2.改判驳回张某的全部诉讼请求；3.一、二审诉讼费用由张某承担。</p>
+                            
+                            <p class="mt-4 mb-2">事实与理由：李某在微信群中的言论属于对同事工作表现的评价，是正常行使言论自由的范围，不构成对张某名誉权的侵害。一审判决认定事实不清，适用法律错误。</p>
+                            
+                            <p class="mt-4 mb-2 text-gray-400">（内容较长，部分省略...）</p>
+                            
+                            <p class="mt-4 mb-2">本院认为，公民享有言论自由，但行使言论自由不得损害他人的合法权益。本案中，李某在公司微信群中发表的言论缺乏事实依据，超出了正常评价范围，已构成对张某名誉权的侵害。一审判决认定事实清楚，适用法律正确，应予维持。依照《中华人民共和国民法典》第一千零二十四条、第一千零二十五条、《中华人民共和国民事诉讼法》第一百七十条第一款第一项规定，判决如下：</p>
+                            
+                            <p class="mt-4 mb-2 font-medium">驳回上诉，维持原判。</p>
+                            
+                            <p class="mt-4 mb-2">二审案件受理费人民币1500元，由上诉人李某负担。</p>
+                            
+                            <p class="mt-4 mb-2">本判决为终审判决。</p>
+                            
+                            <p class="mt-6 text-right">审判长：周某</p>
+                            <p class="text-right">审判员：刘某</p>
+                            <p class="text-right">审判员：黄某</p>
+                            <p class="mt-2 text-right">2023年5月12日</p>
+                        </div>
+                        
+                        <div class="flex justify-around py-4 border-t border-gray-200 mt-4">
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">做笔记</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">收藏</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">对比分析</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                <div class="text-xs text-gray-500">分享</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 相关案例 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">案例详情</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-2 text-sm text-gray-500">基本信息</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">裁判文书</div>
+                            <div class="px-2 py-2 text-sm text-primary border-b-2 border-primary font-medium">相关案例</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">我的笔记</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="text-sm text-gray-500 mb-3">找到 12 个相似案例</div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-3 mb-3">
+                                <div class="font-medium mb-1">陈某诉某自媒体平台名誉权侵权案</div>
+                                <div class="text-sm mb-2">
+                                    相似度: <span class="text-primary font-bold">92%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-02-18</span>
+                                    <span>广州互联网法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">赵某与某新闻媒体名誉权纠纷案</div>
+                                <div class="text-sm mb-2">
+                                    相似度: <span class="text-primary font-bold">85%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2022-11-05</span>
+                                    <span>上海市高级人民法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">孙某诉王某微信朋友圈侵犯名誉权案</div>
+                                <div class="text-sm mb-2">
+                                    相似度: <span class="text-primary font-bold">80%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2022-09-23</span>
+                                    <span>北京市朝阳区人民法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">周某与某博主网络侵权责任纠纷案</div>
+                                <div class="text-sm mb-2">
+                                    相似度: <span class="text-primary font-bold">76%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2022-07-15</span>
+                                    <span>杭州互联网法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full py-3 bg-primary text-white rounded-md font-medium">加载更多案例</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 4. 案例分析与笔记 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">4. 案例分析与笔记</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 笔记页面 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">案例详情</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-2 text-sm text-gray-500">基本信息</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">裁判文书</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">相关案例</div>
+                            <div class="px-2 py-2 text-sm text-primary border-b-2 border-primary font-medium">我的笔记</div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="bg-yellow-50 rounded-lg p-3">
+                                <div class="text-sm">本案关于微信群言论侵犯名誉权的认定标准值得注意，法院明确指出即使在相对封闭的社交媒体环境中，不实言论同样构成侵权。</div>
+                                <div class="text-right text-xs text-gray-400 mt-2">2023-05-15 14:30</div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 rounded-lg p-3">
+                                <div class="text-sm">与陈某案相比，本案赔偿金额更高，可能与侵权行为发生场景（工作环境）有关，对受害人职业声誉的损害更为严重。</div>
+                                <div class="text-right text-xs text-gray-400 mt-2">2023-05-15 14:35</div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 rounded-lg p-3">
+                                <div class="text-sm">本案对于言论自由与名誉权保护边界的探讨具有参考价值，尤其是关于"评价"与"侮辱诽谤"的区分标准。</div>
+                                <div class="text-right text-xs text-gray-400 mt-2">2023-05-16 09:12</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium mb-1">添加新笔记</label>
+                                <textarea placeholder="请输入笔记内容..." class="w-full p-3 border border-gray-300 rounded-md text-sm min-h-[100px]"></textarea>
+                            </div>
+                            <button class="w-full py-3 bg-primary text-white rounded-md font-medium">保存笔记</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例对比分析 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">案例对比分析</div>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-48px)]">
+                        <div class="flex justify-between mb-4 text-sm font-medium">
+                            <div>张某诉李某名誉权侵权纠纷案</div>
+                            <div>陈某诉某自媒体平台名誉权侵权案</div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-2">案由</div>
+                                <div class="flex">
+                                    <div class="w-1/2 pr-2 text-sm bg-red-50 p-2">名誉权纠纷</div>
+                                    <div class="w-1/2 pl-2 text-sm bg-green-50 p-2">名誉权纠纷</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-2">侵权主体</div>
+                                <div class="flex">
+                                    <div class="w-1/2 pr-2 text-sm bg-red-50 p-2">个人（同事）</div>
+                                    <div class="w-1/2 pl-2 text-sm bg-green-50 p-2">自媒体平台（企业）</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-2">侵权方式</div>
+                                <div class="flex">
+                                    <div class="w-1/2 pr-2 text-sm bg-red-50 p-2">微信群发布不实言论</div>
+                                    <div class="w-1/2 pl-2 text-sm bg-green-50 p-2">平台发布虚假信息且未尽审核义务</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-2">赔偿金额</div>
+                                <div class="flex">
+                                    <div class="w-1/2 pr-2 text-sm bg-red-50 p-2">精神损失费3万元，维权支出5000元</div>
+                                    <div class="w-1/2 pl-2 text-sm bg-green-50 p-2">精神损失费2万元，维权支出8000元</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-2">责任承担方式</div>
+                                <div class="flex">
+                                    <div class="w-1/2 pr-2 text-sm bg-red-50 p-2">在原微信群公开道歉+赔偿</div>
+                                    <div class="w-1/2 pl-2 text-sm bg-green-50 p-2">删除内容+首页道歉声明7天+赔偿</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-2">裁判要点</div>
+                                <div class="flex">
+                                    <div class="w-1/2 pr-2 text-sm bg-red-50 p-2">言论缺乏事实依据，超出正常评价范围</div>
+                                    <div class="w-1/2 pl-2 text-sm bg-green-50 p-2">平台未尽到审核义务，存在过错</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="mb-3">
+                                <label class="block text-sm font-medium mb-1">分析笔记</label>
+                                <textarea placeholder="请输入对比分析笔记..." class="w-full p-3 border border-gray-300 rounded-md text-sm min-h-[100px]"></textarea>
+                            </div>
+                            <button class="w-full py-3 bg-primary text-white rounded-md font-medium">保存分析</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 智能分析 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">智能分析</div>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-48px)]">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2">张某诉李某名誉权侵权纠纷案</h3>
+                            <div class="text-sm text-gray-500">
+                                <span>北京市第一中级人民法院</span> | 
+                                <span>2023-05-12</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">关键法条</div>
+                            <div class="text-sm space-y-2">
+                                <p><span class="font-medium">《民法典》第一千零二十四条</span>（名誉权）</p>
+                                <p>民事主体享有名誉权。任何组织或者个人不得以侮辱、诽谤等方式侵害他人的名誉权。</p>
+                                <p><span class="font-medium">《民法典》第一千零二十五条</span>（名誉侵权的认定）</p>
+                                <p>行为人为公共利益实施新闻报道、舆论监督等行为，影响他人名誉的，不承担民事责任，但是有下列情形之一的除外...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">裁判逻辑</div>
+                            <div class="text-center py-4">
+                                <img src="https://images.unsplash.com/photo-1589216532372-1c2a367900d9?w=600&h=400&fit=crop&q=80" alt="裁判逻辑图" class="w-full rounded-lg">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">量刑趋势分析</div>
+                            <div class="text-sm space-y-2">
+                                <p>根据系统对2020-2023年间类似名誉权案件的统计分析：</p>
+                                <p>1. 本案赔偿金额（3万元）略高于同类案件平均值（2.2万元）</p>
+                                <p>2. 微信群等社交媒体平台侵权案件赔偿金额呈上升趋势</p>
+                                <p>3. 工作环境中的名誉侵权案件赔偿标准普遍高于其他场景</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="font-medium mb-2">法律要点提示</div>
+                            <div class="text-sm space-y-2">
+                                <p>1. 微信群虽为半封闭空间，但仍属于特定公共场所，在其中发布不实言论可构成名誉侵权</p>
+                                <p>2. 对他人的评价应当基于事实，且不得超出合理评价范围</p>
+                                <p>3. 名誉权侵权的赔偿考量因素包括侵权行为的场景、影响范围、造成的后果等</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 5. 收藏与管理 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">5. 收藏与管理</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 我的收藏 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="text-base font-semibold">我的收藏</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-2 text-sm text-primary border-b-2 border-primary font-medium">全部</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">案例</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">法条</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">笔记</div>
+                        </div>
+                        
+                        <div class="flex items-center bg-gray-100 rounded-lg p-3 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" placeholder="搜索我的收藏..." class="bg-transparent w-full text-sm border-none focus:outline-none">
+                        </div>
+                        
+                        <div class="flex justify-between mb-4 text-sm">
+                            <div>共 <span class="font-bold">18</span> 项收藏</div>
+                            <div class="text-primary">管理</div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">张某诉李某名誉权侵权纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-05-12</span>
+                                    <span>北京市第一中级人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1 mb-2">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">名誉权</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">侵权责任</span>
+                                </div>
+                                <div class="text-right text-xs text-gray-400">
+                                    收藏于 2023-05-15
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">王某与某科技公司劳动合同纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-04-28</span>
+                                    <span>上海市浦东新区人民法院</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1 mb-2">
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">劳动合同</span>
+                                    <span class="text-xs px-2 py-1 bg-blue-50 text-primary rounded">经济补偿金</span>
+                                </div>
+                                <div class="text-right text-xs text-gray-400">
+                                    收藏于 2023-05-02
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">《民法典》第一千零二十四条（名誉权）</div>
+                                <div class="text-sm text-gray-700 my-2">
+                                    民事主体享有名誉权。任何组织或者个人不得以侮辱、诽谤等方式侵害他人的名誉权。
+                                </div>
+                                <div class="text-right text-xs text-gray-400">
+                                    收藏于 2023-05-15
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">关于微信群言论侵犯名誉权的认定标准笔记</div>
+                                <div class="text-sm text-gray-700 my-2">
+                                    本案关于微信群言论侵犯名誉权的认定标准值得注意，法院明确指出即使在相对封闭的社交媒体环境中...
+                                </div>
+                                <div class="text-right text-xs text-gray-400">
+                                    收藏于 2023-05-15
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 底部导航 -->
+                        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-2">
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                <div class="text-xs text-gray-400">首页</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">搜索</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                </svg>
+                                <div class="text-xs text-primary">收藏</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">我的</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 收藏夹管理 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">收藏夹管理</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-6">
+                            <div class="mb-2">
+                                <label class="block text-sm font-medium mb-1">新建收藏夹</label>
+                                <div class="flex gap-2">
+                                    <input type="text" placeholder="输入收藏夹名称" class="flex-1 p-3 border border-gray-300 rounded-md text-sm">
+                                    <button class="px-4 py-3 bg-primary text-white rounded-md font-medium">创建</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 text-base font-medium">我的收藏夹</div>
+                        
+                        <div class="border border-gray-200 rounded-lg mb-6">
+                            <div class="flex justify-between p-4 border-b border-gray-200">
+                                <div>
+                                    <div class="font-medium mb-1">默认收藏夹</div>
+                                    <div class="text-xs text-gray-400">12 个项目</div>
+                                </div>
+                                <div class="text-primary">查看</div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4 border-b border-gray-200">
+                                <div>
+                                    <div class="font-medium mb-1">名誉权案例</div>
+                                    <div class="text-xs text-gray-400">4 个项目</div>
+                                </div>
+                                <div class="text-primary">查看</div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4">
+                                <div>
+                                    <div class="font-medium mb-1">劳动纠纷</div>
+                                    <div class="text-xs text-gray-400">2 个项目</div>
+                                </div>
+                                <div class="text-primary">查看</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="mb-4 text-base font-medium">最近收藏</div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">张某诉李某名誉权侵权纠纷案</div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-05-12</span>
+                                    <span>北京市第一中级人民法院</span>
+                                </div>
+                                <div class="text-right text-xs text-gray-400">
+                                    收藏于 2023-05-15
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">《民法典》第一千零二十四条（名誉权）</div>
+                                <div class="text-sm text-gray-700 my-2">
+                                    民事主体享有名誉权。任何组织或者个人不得以侮辱、诽谤等方式侵害他人的名誉权。
+                                </div>
+                                <div class="text-right text-xs text-gray-400">
+                                    收藏于 2023-05-15
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 个人中心 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="text-base font-semibold">我的</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center mb-8">
+                            <div class="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4">王</div>
+                            <div>
+                                <div class="text-lg font-bold mb-1">王律师</div>
+                                <div class="text-sm text-gray-500">某律师事务所</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg mb-6 shadow-sm">
+                            <div class="flex justify-between p-4 border-b border-gray-100">
+                                <div>我的收藏</div>
+                                <div class="text-gray-400">18 ></div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4 border-b border-gray-100">
+                                <div>浏览历史</div>
+                                <div class="text-gray-400">42 ></div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4">
+                                <div>我的笔记</div>
+                                <div class="text-gray-400">15 ></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg mb-6 shadow-sm">
+                            <div class="flex justify-between p-4 border-b border-gray-100">
+                                <div>账号设置</div>
+                                <div class="text-gray-400">></div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4 border-b border-gray-100">
+                                <div>通知设置</div>
+                                <div class="text-gray-400">></div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4">
+                                <div>隐私设置</div>
+                                <div class="text-gray-400">></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg mb-6 shadow-sm">
+                            <div class="flex justify-between p-4 border-b border-gray-100">
+                                <div>帮助中心</div>
+                                <div class="text-gray-400">></div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4 border-b border-gray-100">
+                                <div>关于我们</div>
+                                <div class="text-gray-400">></div>
+                            </div>
+                            
+                            <div class="flex justify-between p-4">
+                                <div>意见反馈</div>
+                                <div class="text-gray-400">></div>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full py-3 border border-gray-300 text-gray-600 rounded-md font-medium mt-6">退出登录</button>
+                        
+                        <!-- 底部导航 -->
+                        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around py-2">
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                <div class="text-xs text-gray-400">首页</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">搜索</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                </svg>
+                                <div class="text-xs text-gray-400">收藏</div>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                <div class="text-xs text-primary">我的</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 6. 案例协作与分享 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">6. 案例协作与分享</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 分享案例 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">分享案例</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2">张某诉李某名誉权侵权纠纷案</h3>
+                            <div class="text-sm text-gray-500">
+                                <span>北京市第一中级人民法院</span> | 
+                                <span>2023-05-12</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                            <div class="text-sm font-medium mb-3">分享内容</div>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                    <input type="checkbox" checked class="mr-2">
+                                    <span class="text-sm">案例基本信息</span>
+                                </div>
+                                <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                    <input type="checkbox" checked class="mr-2">
+                                    <span class="text-sm">裁判文书</span>
+                                </div>
+                                <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">我的笔记</span>
+                                </div>
+                                <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-sm">智能分析</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="mb-2">
+                                <label class="block text-sm font-medium mb-1">添加分享备注</label>
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md text-sm min-h-[100px]">这个案例关于微信群中名誉权侵权的认定标准很有参考价值，尤其是对言论自由与名誉权保护边界的探讨。</textarea>
+                            </div>
+                            <button class="w-full py-3 bg-primary text-white rounded-md font-medium">保存分享</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 团队协作 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">团队协作</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-2 text-sm text-primary border-b-2 border-primary font-medium">我的团队</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">共享案例</div>
+                        </div>
+                        
+                        <div class="my-4">
+                            <button class="w-full py-3 bg-primary text-white rounded-md font-medium">创建新团队</button>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                            <div class="flex justify-between mb-2">
+                                <div class="font-medium">名誉权案例研究小组</div>
+                                <div class="text-sm text-primary">管理</div>
+                            </div>
+                            
+                            <div class="text-sm text-gray-500 mb-4">成员: 5人 | 案例: 12个</div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mb-1">王</div>
+                                    <div class="text-xs">我(创建者)</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">张</div>
+                                    <div class="text-xs">张律师</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">李</div>
+                                    <div class="text-xs">李律师</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">赵</div>
+                                    <div class="text-xs">赵律师</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">+</div>
+                                    <div class="text-xs">邀请</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center text-primary text-sm">
+                                进入团队空间
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg border border-gray-200 p-4">
+                            <div class="flex justify-between mb-2">
+                                <div class="font-medium">劳动纠纷案例分析</div>
+                                <div class="text-sm text-primary">管理</div>
+                            </div>
+                            
+                            <div class="text-sm text-gray-500 mb-4">成员: 3人 | 案例: 8个</div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">陈</div>
+                                    <div class="text-xs">陈律师(创建者)</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mb-1">王</div>
+                                    <div class="text-xs">我</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">孙</div>
+                                    <div class="text-xs">孙律师</div>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-1">+</div>
+                                    <div class="text-xs">邀请</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center text-primary text-sm">
+                                进入团队空间
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 团队空间 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">团队空间</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2">名誉权案例研究小组</h3>
+                            <div class="text-sm text-gray-500">
+                                <span>成员: 5人</span> | 
+                                <span>案例: 12个</span> | 
+                                <span>创建于: 2023-04-10</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex border-b border-gray-200 mb-4">
+                            <div class="px-2 py-2 text-sm text-primary border-b-2 border-primary font-medium">共享案例</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">团队笔记</div>
+                            <div class="px-2 py-2 text-sm text-gray-500">成员</div>
+                        </div>
+                        
+                        <div class="flex justify-between my-4">
+                            <div class="font-medium">最近更新</div>
+                            <div class="text-sm text-primary">添加案例</div>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-1">张某诉李某名誉权侵权纠纷案</div>
+                                <div class="text-xs text-gray-500 mb-2">
+                                    <span>分享者: 王律师</span> | 
+                                    <span>2023-05-15</span>
+                                </div>
+                                <div class="text-sm mb-3">
+                                    这个案例关于微信群中名誉权侵权的认定标准很有参考价值，尤其是对言论自由与名誉权保护边界的探讨。
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <div class="text-gray-500">
+                                        <span>3人已查看</span> | 
+                                        <span>2条笔记</span>
+                                    </div>
+                                    <div class="text-primary">查看详情</div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">陈某诉某自媒体平台名誉权侵权案</div>
+                                <div class="text-xs text-gray-500 mb-2">
+                                    <span>分享者: 张律师</span> | 
+                                    <span>2023-05-10</span>
+                                </div>
+                                <div class="text-sm mb-3">
+                                    自媒体平台侵权责任认定的典型案例，对平台审核义务有详细论述。
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <div class="text-gray-500">
+                                        <span>5人已查看</span> | 
+                                        <span>4条笔记</span>
+                                    </div>
+                                    <div class="text-primary">查看详情</div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">赵某与某新闻媒体名誉权纠纷案</div>
+                                <div class="text-xs text-gray-500 mb-2">
+                                    <span>分享者: 李律师</span> | 
+                                    <span>2023-05-05</span>
+                                </div>
+                                <div class="text-sm mb-3">
+                                    新闻媒体失实报道导致名誉权侵权的经典案例，对媒体社会责任有深入探讨。
+                                </div>
+                                <div class="flex justify-between text-xs">
+                                    <div class="text-gray-500">
+                                        <span>4人已查看</span> | 
+                                        <span>3条笔记</span>
+                                    </div>
+                                    <div class="text-primary">查看详情</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="font-medium mb-4">团队活动</div>
+                            
+                            <div class="space-y-3">
+                                <div class="bg-gray-50 rounded-lg p-3">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-2">王</div>
+                                        <div>
+                                            <div class="font-medium">王律师</div>
+                                            <div class="text-xs text-gray-400">2023-05-15 14:30</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm">分享了案例《张某诉李某名誉权侵权纠纷案》</div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-3">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2">李</div>
+                                        <div>
+                                            <div class="font-medium">李律师</div>
+                                            <div class="text-xs text-gray-400">2023-05-15 16:45</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm">对《张某诉李某名誉权侵权纠纷案》添加了笔记</div>
+                                </div>
+                                
+                                <div class="bg-gray-50 rounded-lg p-3">
+                                    <div class="flex items-center mb-2">
+                                        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-2">张</div>
+                                        <div>
+                                            <div class="font-medium">张律师</div>
+                                            <div class="text-xs text-gray-400">2023-05-16 09:20</div>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm">创建了对比分析《张某案与陈某案的名誉权侵权责任比较》</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 7. 智能检索与辅助功能 -->
+        <div class="mb-12">
+            <h3 class="text-xl font-bold mb-4">7. 智能检索与辅助功能</h3>
+            <div class="flex flex-wrap gap-6 justify-center">
+                <!-- 智能检索 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">智能检索</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-6">
+                            <div class="text-base font-medium mb-2">自然语言搜索</div>
+                            <div class="flex gap-2">
+                                <input type="text" value="微信群中发布不实言论构成名誉侵权的判断标准是什么？" placeholder="请输入您的问题..." class="flex-1 p-3 border border-gray-300 rounded-md text-sm">
+                                <button class="px-3 py-3 bg-primary text-white rounded-md font-medium">搜索</button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                            <div class="text-base font-medium mb-3">智能回答</div>
+                            <div class="text-sm leading-relaxed">
+                                <p class="mb-2">根据相关案例分析，微信群中发布不实言论构成名誉侵权的判断标准主要包括以下几点：</p>
+                                <p class="mb-2">1. <span class="font-medium">事实依据</span>：言论是否有充分的事实依据，缺乏事实依据的言论更容易构成侵权；</p>
+                                <p class="mb-2">2. <span class="font-medium">表达方式</span>：言论的表达方式是否恶意、侮辱性或诽谤性；</p>
+                                <p class="mb-2">3. <span class="font-medium">传播范围</span>：虽然微信群属于相对封闭的空间，但仍被视为特定公共场所，群内成员数量和身份关系会影响侵权认定；</p>
+                                <p class="mb-2">4. <span class="font-medium">评价边界</span>：是否超出了正常评价范围，纯主观评价与客观陈述事实的区别；</p>
+                                <p>5. <span class="font-medium">损害后果</span>：言论是否对当事人的名誉造成实际损害，包括社会评价降低、精神痛苦等。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 text-sm font-medium">相关案例推荐</div>
+                        
+                        <div class="space-y-3">
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <div class="font-medium mb-1">张某诉李某名誉权侵权纠纷案</div>
+                                <div class="text-sm mb-2">
+                                    相关度: <span class="text-primary font-bold">98%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2023-05-12</span>
+                                    <span>北京市第一中级人民法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">孙某诉王某微信朋友圈侵犯名誉权案</div>
+                                <div class="text-sm mb-2">
+                                    相关度: <span class="text-primary font-bold">92%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2022-09-23</span>
+                                    <span>北京市朝阳区人民法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3 border-b border-gray-100">
+                                <div class="font-medium mb-1">刘某诉张某微信工作群侵犯名誉权案</div>
+                                <div class="text-sm mb-2">
+                                    相关度: <span class="text-primary font-bold">85%</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                                    <span>2021-11-18</span>
+                                    <span>上海市浦东新区人民法院</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm text-primary">查看详情 ></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 法条推荐 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="absolute left-4 text-lg font-semibold">←</div>
+                        <div class="text-base font-semibold">法条推荐</div>
+                    </div>
+                    <div class="p-4 overflow-y-auto h-[calc(100%-48px)]">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold mb-2">张某诉李某名誉权侵权纠纷案</h3>
+                            <div class="text-sm text-gray-500">
+                                <span>北京市第一中级人民法院</span> | 
+                                <span>2023-05-12</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 text-sm font-medium">相关法条</div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <div class="text-base font-medium mb-2">《中华人民共和国民法典》第一千零二十四条</div>
+                                <div class="text-sm leading-relaxed">
+                                    民事主体享有名誉权。任何组织或者个人不得以侮辱、诽谤等方式侵害他人的名誉权。
+                                </div>
+                                <div class="flex justify-end mt-2">
+                                    <div class="text-primary text-sm">收藏</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <div class="text-base font-medium mb-2">《中华人民共和国民法典》第一千零二十五条</div>
+                                <div class="text-sm leading-relaxed">
+                                    行为人为公共利益实施新闻报道、舆论监督等行为，影响他人名誉的，不承担民事责任，但是有下列情形之一的除外：<br>
+                                    (一)捏造、歪曲事实；<br>
+                                    (二)对他人提供的严重失实内容未尽到合理核实义务；<br>
+                                    (三)使用侮辱性言辞等贬损他人名誉。
+                                </div>
+                                <div class="flex justify-end mt-2">
+                                    <div class="text-primary text-sm">收藏</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <div class="text-base font-medium mb-2">《中华人民共和国民法典》第一千一百六十五条</div>
+                                <div class="text-sm leading-relaxed">
+                                    行为人因过错侵害他人民事权益造成损害的，应当承担侵权责任。<br>
+                                    依照法律规定推定行为人有过错，其不能证明自己没有过错的，应当承担侵权责任。
+                                </div>
+                                <div class="flex justify-end mt-2">
+                                    <div class="text-primary text-sm">收藏</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                <div class="text-base font-medium mb-2">《最高人民法院关于审理名誉权案件若干问题的解释》第八条</div>
+                                <div class="text-sm leading-relaxed">
+                                    行为人发表的言论，仅对他人的人格、能力等作出否定性评价，不含有侮辱、诽谤内容，且未使用侮辱性言辞的，通常不应认定为侵害他人名誉权。
+                                </div>
+                                <div class="flex justify-end mt-2">
+                                    <div class="text-primary text-sm">收藏</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 案例摘要生成 -->
+                <div class="w-[320px] h-[640px] bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-200">
+                    <div class="h-12 bg-gray-100 border-b border-gray-200 flex items-center justify-center relative">
+                        <div class="text-base font-semibold">案例摘要生成</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-6">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-1">选择案例文书</label>
+                                <select class="w-full p-3 border border-gray-300 rounded-md text-sm">
+                                    <option>张某诉李某名誉权侵权纠纷案</option>
+                                    <option>陈某诉某自媒体平台名誉权侵权案</option>
+                                    <option>王某与某科技公司劳动合同纠纷案</option>
+                                    <option>赵某与某新闻媒体名誉权纠纷案</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium mb-1">摘要类型</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                        <input type="checkbox" checked class="mr-2">
+                                        <span class="text-sm">案件基本信息</span>
+                                    </div>
+                                    <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                        <input type="checkbox" checked class="mr-2">
+                                        <span class="text-sm">争议焦点</span>
+                                    </div>
+                                    <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                        <input type="checkbox" checked class="mr-2">
+                                        <span class="text-sm">裁判要点</span>
+                                    </div>
+                                    <div class="flex items-center bg-white px-3 py-2 rounded border border-gray-200">
+                                        <input type="checkbox" checked class="mr-2">
+                                        <span class="text-sm">法律依据</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full py-3 bg-primary text-white rounded-md font-medium">生成摘要</button>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4 mb-6 overflow-y-auto max-h-[350px]">
+                            <div class="text-base font-medium mb-4">案例摘要</div>
+                            
+                            <div class="mb-4">
+                                <div class="font-medium mb-1">案件基本信息</div>
+                                <div class="text-sm leading-relaxed">
+                                    案号：(2023)京01民终1234号<br>
+                                    审理法院：北京市第一中级人民法院<br>
+                                    裁判日期：2023年5月12日<br>
+                                    案由：名誉权纠纷<br>
+                                    当事人：上诉人(原审被告)李某，被上诉人(原审原告)张某<br>
+                                    审判程序：二审
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="font-medium mb-1">争议焦点</div>
+                                <div class="text-sm leading-relaxed">
+                                    1. 李某在微信群中发布的言论是否构成对张某名誉权的侵害<br>
+                                    2. 微信群作为特定社交空间，发布言论的侵权认定标准<br>
+                                    3. 言论自由与名誉权保护的边界
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="font-medium mb-1">裁判要点</div>
+                                <div class="text-sm leading-relaxed">
+                                    1. 法院认定李某在微信群中发布的言论缺乏事实依据，超出了正常评价范围，构成对张某名誉权的侵害<br>
+                                    2. 微信群虽为相对封闭空间，但仍属于特定公共场所，在其中发布不实言论可构成名誉侵权<br>
+                                    3. 公民享有言论自由，但行使言论自由不得损害他人的合法权益
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="font-medium mb-1">法律依据</div>
+                                <div class="text-sm leading-relaxed">
+                                    1. 《中华人民共和国民法典》第一千零二十四条（名誉权）<br>
+                                    2. 《中华人民共和国民法典》第一千零二十五条（名誉侵权的认定）<br>
+                                    3. 《中华人民共和国民事诉讼法》第一百七十条第一款第一项
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="flex-1 py-3 border border-gray-300 text-gray-600 rounded-md font-medium">导出摘要</button>
+                            <button class="flex-1 py-3 bg-primary text-white rounded-md font-medium">保存至笔记</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 产品设计总结 -->
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-gray-300">类案检索APP设计总结</h2>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+                <p class="mb-4">本设计基于法律从业者的实际需求，打造了一款功能完整、用户体验优良的类案检索APP。主要特点包括：</p>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li><span class="font-medium">智能搜索系统</span>：支持关键词、案号、法条搜索和自然语言提问，精准匹配相关案例</li>
+                    <li><span class="font-medium">案例详情展示</span>：提供案例基本信息、裁判文书、相关案例和用户笔记等多维度信息</li>
+                    <li><span class="font-medium">案例分析工具</span>：支持案例对比分析、智能分析、法条推荐等专业功能</li>
+                    <li><span class="font-medium">个人知识管理</span>：笔记功能、收藏夹管理，帮助用户构建个人知识库</li>
+                    <li><span class="font-medium">团队协作功能</span>：支持案例分享、团队空间，促进团队内知识共享</li>
+                    <li><span class="font-medium">智能辅助功能</span>：自然语言搜索、案例摘要自动生成等AI辅助功能</li>
+                </ol>
+                <p class="mt-4">此设计充分考虑了法律从业者的工作流程和专业需求，提供了全面的案例检索、分析和管理功能，帮助用户提高工作效率和案例研究质量。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
